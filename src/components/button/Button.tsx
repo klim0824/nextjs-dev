@@ -11,10 +11,6 @@ interface ButtonProps {
    */
   backgroundColor?: string
   /**
-   * How large should the button be?
-   */
-  size?: 'small' | 'medium' | 'large'
-  /**
    * Button contents
    */
   label: string
@@ -29,22 +25,15 @@ interface ButtonProps {
  */
 export const Button = ({
   primary = false,
-  size = 'medium',
   backgroundColor,
   label,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? '--primary' : '--secondary'
-  console.log(
-    `${styles.button} ${styles.button}${mode} ${styles.button}--${size}`,
-  )
+  const mode = primary ? styles.isPrimary : styles.isSecondary
+  console.log(`${styles.button} ${mode}`)
 
   return (
-    <button
-      type="button"
-      className={`${styles.button} ${styles.button}${mode} ${styles.button}--${size}`}
-      {...props}
-    >
+    <button type="button" className={`${styles.button} ${mode}`} {...props}>
       {label}
       <style jsx>{`
         button {
