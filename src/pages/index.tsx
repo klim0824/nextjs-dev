@@ -1,6 +1,6 @@
 import { Noto_Sans_JP } from 'next/font/google'
 import Head from 'next/head'
-// import Image from 'next/image'
+
 import { Button } from '@/components/button'
 import styles from '@/styles/Home.module.css'
 
